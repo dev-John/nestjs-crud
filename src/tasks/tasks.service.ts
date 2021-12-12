@@ -37,4 +37,14 @@ export class TasksService {
 
     return task;
   }
+
+  updateTaskStatus(id: string, status: TaskStatus): Task | string {
+    const task = this.getTaskById(id);
+
+    if (task && task.status) {
+      task.status = status;
+    }
+
+    return task || 'Task ID not found';
+  }
 }
